@@ -1,0 +1,35 @@
+type Query {
+    articles: [Article]
+    editors: [Editor]
+}
+
+type Article {
+    id: ID!
+    title: String
+    description: String
+    slug: String
+    content: String
+    status: String
+    thumbnailId: Int
+    readingTime: Int
+    authorId: Int
+    revisions: Revision
+}
+
+type Revision {
+    id: ID!
+    versionNumber: Int
+    content: String
+    editor: Editor
+}
+
+type Editor {
+    id: ID!
+    user: User
+}
+
+type User {
+    id: ID!
+    firstName: String
+    lastName: String
+}

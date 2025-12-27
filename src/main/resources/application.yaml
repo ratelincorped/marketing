@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: marketing
+  config:
+    import: optional:configserver:http://localhost:2301
+  datasource:
+    driver-class-name: org.postgresql.driver
+    url: jdbc:postgresql://localhost:5432/ratel-marketing
+    username: ratel_user
+    password: ratelpswd
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    #      naming:
+    #        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format-sql: true
+  graphql:
+    graphiql:
+      enabled: true
