@@ -21,6 +21,7 @@ public class BaseEntity {
     private Integer id;
     private LocalDateTime createdAt;
     private LocalDateTime lastModifiedAt;
+    private LocalDateTime deleteTime;
     private Integer createdBy;
     private Integer lastModifiedBy;
 }

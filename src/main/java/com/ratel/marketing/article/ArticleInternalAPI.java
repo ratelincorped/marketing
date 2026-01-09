@@ -21,4 +21,6 @@ public interface ArticleInternalAPI {
     List<Revision> getRevisionsByEditorId(Integer editorId);
 
     List<Editor> getEditors();
+
+    void deleteArticle(Integer id);
 }

@@ -15,6 +15,13 @@ import org.hibernate.type.SqlTypes;
 import java.util.List;
 import java.util.Map;
 
+enum Status {
+    DRAFT,
+    PUBLISHED,
+    REVISED,
+    DELETED
+}
+
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
@@ -22,21 +29,15 @@ import java.util.Map;
 @SuperBuilder
 @Entity
 public class Article extends BaseEntity {
-    @Column(
-            unique = true,
-            nullable = false
-    )
+    @Column(unique = true, nullable = false)
     private String title;
     @Column(nullable = false)
     private String description;
-    @Column(
-            unique = true,
-            nullable = false
-    )
+    @Column(unique = true, nullable = false)
     private String slug;
     @JdbcTypeCode(SqlTypes.JSON)
     private Map<String, Object> content;
-    private String status;
+    private Enum<Status> status;
     private Integer readingTime;
     private Integer thumbnailId;
     @Column(nullable = false)
